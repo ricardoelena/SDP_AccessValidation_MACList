@@ -20,7 +20,7 @@ function debugLog(msg) {
     }
 }
 
-if (claims.user.tags && claims.user.tags.containsText("valida")) {  //Tag or group that should work on machines with specific MAC
+if (claims.user.tags && claims.user.tags.containsText("validate")) {  //Tag or group that should work on machines with specific MAC
   result = true; 
   debugLog("User match");
 } else { 
