@@ -1,6 +1,6 @@
 var result = false;
 var audit = false; // prints audit messages
-var debug = true; //prints debugLog messages
+var debug = false; //prints debugLog messages
 //var dryRun = false; // run without any available claim.
 var logPrefix = "MAC Address Validation event";
 var maddress = ['38F9D3ASE0D120','38F9ORP5D1211']; //List of MAC Address for shared machines
@@ -20,14 +20,13 @@ function debugLog(msg) {
     }
 }
 
-for ( var i = 0; i < maddress.length; i++) {
-  if (claims.device.macAddresses.containsText(maddress[i]) ) {
-    result = true;
-    debugLog("MACAddress match found " + maddress[i]);
-    auditLog("MACAddress match found " + maddress[i]);
-    break;
+result = maddress.some(address => {
+  if (claims.device.macAddresses.containsText(address)) {
+    debugLog("MACAddress match found " + address);
+    auditLog("MACAddress match found " + address);
+    return true;
   }
-  result = false;
-}
+  return false;
+})
 
 return result;
