@@ -20,13 +20,13 @@ function debugLog(msg) {
     }
 }
 
-result = maddress.some(address => {
-  if (claims.device.macAddresses.containsText(address)) {
-    debugLog("MACAddress match found " + address);
-    auditLog("MACAddress match found " + address);
-    return true;
+for (var i = 0; i < maddress.length; i++) {
+  if (claims.device.macAddresses.includes(maddress[i])) {
+    result = true;
+    debugLog("MACAddress match found " + maddress[i]);
+    auditLog("MACAddress match found " + maddress[i]);
+    break;
   }
-  return false;
-})
+}
 
 return result;
