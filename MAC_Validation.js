@@ -28,14 +28,13 @@ if (claims.user.tags && claims.user.tags.containsText("validate")) {  //Tag or g
   return true; 
 }
 
-for ( var i = 0; i < maddress.length; i++) {
-  if (claims.device.macAddresses.containsText(maddress[i]) ) {
+for (var i = 0; i < maddress.length; i++) {
+  if (claims.device.macAddresses.includes(maddress[i])) {
     result = true;
     debugLog("MACAddress match found " + maddress[i]);
     auditLog("MACAddress match found " + maddress[i]);
     break;
   }
-  result = false;
 }
 
 return result;
