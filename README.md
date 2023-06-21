@@ -6,4 +6,4 @@ JS Criteria Script to validate that people with tag "valida" can only connect on
 
 
 ## OnlyMAC.js
-Second script that will check the MAC address of the claim against a list of MAC address provided on the same script.
+Checks the MAC address of the device claim against a list of MAC addresses provide in line #6
